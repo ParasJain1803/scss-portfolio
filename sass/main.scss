@@ -1,13 +1,23 @@
-@use 'abstracts/colors';
+@use 'abstracts/colors' as *;
 @use 'abstracts/functions';
 @use 'abstracts/mixins';
 @use 'abstracts/variables';
 
+@use 'base/reset';
+
+
 @use 'layout/header';
 @use 'layout/footer';
-@use 'layout/navigation';
 
 @use 'components/buttons';
 @use 'components/cards';
+@use 'components/headings';
+@use 'components/go-to-top';
 
-
+@use 'pages/index';
+@use 'pages/about';
+@use 'pages/services';
+@use 'pages/summary';
+@use 'pages/portfolio';
+@use 'pages/testimonial';
+@use 'pages/contact';

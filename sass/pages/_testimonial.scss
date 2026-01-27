@@ -1,0 +1,108 @@
+@use '../abstracts/colors' as *;
+
+.testimonial {
+  padding: 100px 0;
+  background-color: $color-bg-light;
+
+  .testimonial-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .testimonial-carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    margin: 0 -15px;
+  }
+
+  .testimonial-item {
+    flex: 0 0 50%;
+    padding: 0 15px;
+    box-sizing: border-box;
+
+    @media (max-width: 992px) {
+      flex: 0 0 100%;
+    }
+  }
+
+  .card {
+    background: $color-white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba($color-black, 0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+
+      img {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        margin-right: 20px;
+        object-fit: cover;
+      }
+
+      .user-info {
+        h3 {
+          font-size: 18px;
+          color: $color-text-dark;
+          margin-bottom: 5px;
+          font-weight: 600;
+        }
+
+        p {
+          font-size: 14px;
+          color: $color-text-body;
+          margin: 0;
+        }
+      }
+    }
+
+    .content {
+      font-size: 16px;
+      line-height: 1.8;
+      color: $color-text-content;
+      margin-bottom: 20px;
+      font-style: normal;
+    }
+
+    .rating {
+      color: $color-warning;
+      font-size: 14px;
+      
+      i {
+        margin-right: 2px;
+      }
+    }
+  }
+
+  .carousel-dots {
+    text-align: center;
+    margin-top: 40px;
+
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 8px;
+      background-color: $color-bg-grey-dark;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+
+      &:hover {
+        background-color: $color-primary;
+      }
+    }
+  }
+}

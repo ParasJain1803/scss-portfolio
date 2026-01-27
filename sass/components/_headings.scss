@@ -1,0 +1,62 @@
+@use '../abstracts/colors' as *;
+
+.heading-wrapper {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    padding-top: 20px;
+
+    h1 {
+        font-size: 140px;
+        font-weight: 900;
+        color: $color-bg-faded;
+        text-transform: uppercase;
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+        width: 100%;
+        z-index: 1;
+        letter-spacing: 10px;
+        line-height: 1;
+
+        @media (max-width: 768px) {
+            font-size: 80px;
+            letter-spacing: 5px;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 50px;
+            letter-spacing: 0px;
+        }
+    }
+
+    h2 {
+        font-size: 36px;
+        font-weight: 700;
+        color: $color-text-dark;
+        text-transform: capitalize;
+        margin: 0;
+        position: relative;
+        z-index: 2;
+        padding-top: 50px;
+
+        @media (max-width: 768px) {
+            font-size: 28px;
+            padding-top: 30px;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 24px;
+        }
+        
+        &::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: $color-primary;
+            margin: 15px auto 0;
+        }
+    }
+}
