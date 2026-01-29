@@ -30,9 +30,6 @@ header .logo {
   color: #ffffff;
   letter-spacing: 1px;
 }
-header .logo::before {
-  content: "Paras";
-}
 header nav {
   flex: 1;
   display: flex;
@@ -175,7 +172,7 @@ button:active {
   width: 45px;
   height: 45px;
   background-color: #20c997;
-  color: #fff;
+  color: #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -188,10 +185,10 @@ button:active {
   transition: all 0.3s ease;
   z-index: 1000;
   cursor: pointer;
-  color: #fff;
+  color: #ffffff;
 }
 .go-to-top:hover {
-  background-color: white;
+  background-color: #ffffff;
   box-shadow: 0 6px 20px rgba(32, 201, 151, 0.4);
   transform: translateY(-3px);
   color: #20c997;
@@ -204,7 +201,7 @@ button:active {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: #000;
+  background-color: #000000;
 }
 .hero .video-wrapper {
   position: absolute;
@@ -311,7 +308,7 @@ button:active {
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+  0%, 20%, 100% {
     transform: translateX(-50%) translateY(0);
   }
   40% {
@@ -442,7 +439,7 @@ button:active {
   transform: translateY(-50%);
   width: 1px;
   height: 60px;
-  background-color: #e0e0e0;
+  background-color: #dee2e6;
 }
 @media (max-width: 768px) {
   .about .about-bottom .about-grid .about-grid__item:not(:last-child)::after {
@@ -710,7 +707,7 @@ button:active {
 
 .portfolio {
   padding: 100px 0;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 .portfolio .filters {
   display: flex;
@@ -727,7 +724,7 @@ button:active {
   position: relative;
   padding-bottom: 5px;
 }
-.portfolio .filters p:hover, .portfolio .filters p.active {
+.portfolio .filters p:hover {
   color: #20c997;
 }
 .portfolio .filters p.active::after {
@@ -749,7 +746,7 @@ button:active {
   padding: 0 20px;
 }
 .portfolio .grid-container .grid-item {
-  background-color: #eee;
+  background-color: #eeeeee;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
@@ -785,7 +782,7 @@ button:active {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: #ffffff;
   text-align: center;
   z-index: 3;
   opacity: 0;
@@ -849,25 +846,6 @@ button:active {
 .testimonial {
   padding: 100px 0;
   background-color: #f8f9fa;
-}
-.testimonial input[type=radio] {
-  display: none;
-}
-.testimonial #dot-1:checked ~ .testimonial-container .testimonial-carousel {
-  transform: translateX(0%);
-}
-.testimonial #dot-1:checked ~ .testimonial-container .carousel-dots .dot[for=dot-1] {
-  background-color: #20c997;
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #20c997;
-  transform: scale(1.2);
-}
-.testimonial #dot-2:checked ~ .testimonial-container .testimonial-carousel {
-  transform: translateX(-100%);
-}
-.testimonial #dot-2:checked ~ .testimonial-container .carousel-dots .dot[for=dot-2] {
-  background-color: #20c997;
-  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #20c997;
-  transform: scale(1.2);
 }
 .testimonial .testimonial-container {
   max-width: 1140px;
@@ -947,7 +925,7 @@ button:active {
   height: 12px;
   width: 12px;
   margin: 0 8px;
-  background-color: #ddd;
+  background-color: #dddddd;
   border-radius: 50%;
   display: inline-block;
   cursor: pointer;
@@ -1032,7 +1010,7 @@ button:active {
 .contact .contact-left .social-section .social-icons a:hover {
   background-color: #20c997;
   border-color: #20c997;
-  color: #fff;
+  color: #ffffff;
 }
 .contact .contact-right {
   flex: 1;
@@ -1095,7 +1073,7 @@ button:active {
 .contact .contact-right .contact-form .submit-btn {
   padding: 12px 40px;
   background-color: #20c997;
-  color: #fff;
+  color: #ffffff;
   border: none;
   border-radius: 25px;
   font-size: 14px;
@@ -1106,7 +1084,7 @@ button:active {
   box-shadow: 0 4px 15px rgba(32, 201, 151, 0.3);
 }
 .contact .contact-right .contact-form .submit-btn:hover {
-  background-color: #1ab386;
+  background-color: #17a87e;
   box-shadow: 0 6px 20px rgba(32, 201, 151, 0.4);
   transform: translateY(-2px);
 }/*# sourceMappingURL=main.css.map */
