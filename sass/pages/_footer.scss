@@ -1,0 +1,92 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+
+.footer {
+  padding: remCalc(60px) remCalc(100px);
+  background-color: $color-white;
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid $color-border;
+
+  @include respond-to(large) {
+    padding: remCalc(50px) remCalc(60px);
+  }
+
+  @include respond-to(medium) {
+    padding: remCalc(40px) remCalc(30px);
+  }
+
+  @include respond-to(small) {
+    padding: remCalc(35px) remCalc(20px);
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: remCalc(1200px);
+    margin: 0 auto;
+
+    @include respond-to(medium) {
+      flex-direction: column;
+      gap: remCalc(15px);
+      text-align: center;
+    }
+  }
+
+  .footer-left {
+    p {
+      font-size: remCalc(16px);
+      color: $color-text-body;
+      margin: 0;
+
+      .highlight {
+        color: $color-primary;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $color-primary-dark;
+        }
+      }
+    }
+  }
+
+  .footer-right {
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: remCalc(12px);
+
+      @include respond-to(medium) {
+        justify-content: center;
+      }
+
+      li {
+        font-size: remCalc(16px);
+        color: $color-text-dark;
+
+        a {
+          color: $color-text-dark;
+          text-decoration: none;
+          transition: all 0.3s ease;
+
+          &:hover {
+            color: $color-primary;
+          }
+        }
+
+        &.separator {
+          color: $color-text-placeholder;
+          opacity: 0.6;
+          user-select: none;
+          padding: 0 remCalc(5px);
+        }
+      }
+    }
+  }
+}

@@ -1,13 +1,15 @@
 @use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
 
 .testimonial {
-  padding: 100px 0;
+  padding: remCalc(100px) 0;
   background-color: $color-bg-light;
 
   .testimonial-container {
-    max-width: 1140px;
+    max-width: remCalc(1140px);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 remCalc(20px);
     overflow: hidden;
     position: relative;
   }
@@ -15,52 +17,63 @@
   .testimonial-carousel {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    margin: 0 -15px;
+    margin: 0 remCalc(-15px);
   }
 
   .testimonial-item {
     flex: 0 0 50%;
-    padding: 0 15px;
+    padding: 0 remCalc(15px);
     box-sizing: border-box;
 
-    @media (max-width: 992px) {
+    @include respond-to(large) {
       flex: 0 0 100%;
     }
   }
 
   .card {
     background: $color-white;
-    padding: 40px;
+    padding: remCalc(40px);
     border-radius: 8px;
     box-shadow: 0 2px 15px rgba($color-black, 0.05);
     height: 100%;
-    display: flex;
-    flex-direction: column;
+    @include flex-center(column);
     justify-content: space-between;
+    align-items: flex-start;
+
+    @include respond-to(small) {
+      padding: remCalc(30px) remCalc(20px);
+    }
 
     .card-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 25px;
+      @include flex-center(row);
+      justify-content: flex-start;
+      margin-bottom: remCalc(25px);
+      width: 100%;
 
       img {
-        width: 65px;
-        height: 65px;
+        width: remCalc(65px);
+        height: remCalc(65px);
         border-radius: 50%;
-        margin-right: 20px;
+        margin-right: remCalc(20px);
         object-fit: cover;
+
+        @include respond-to(small) {
+          width: remCalc(50px);
+          height: remCalc(50px);
+          margin-right: remCalc(15px);
+        }
       }
 
       .user-info {
         h3 {
-          font-size: 18px;
+          font-size: remCalc(18px);
           color: $color-text-dark;
-          margin-bottom: 5px;
+          margin-bottom: remCalc(5px);
           font-weight: 600;
         }
 
         p {
-          font-size: 14px;
+          font-size: remCalc(14px);
           color: $color-text-body;
           margin: 0;
         }
@@ -68,41 +81,25 @@
     }
 
     .content {
-      font-size: 16px;
+      font-size: remCalc(16px);
       line-height: 1.8;
       color: $color-text-content;
-      margin-bottom: 20px;
+      margin-bottom: remCalc(20px);
       font-style: normal;
+
+      @include respond-to(small) {
+        font-size: remCalc(15px);
+      }
     }
 
     .rating {
       color: $color-yellow;
-      font-size: 14px;
+      font-size: remCalc(14px);
       
       i {
-        margin-right: 2px;
+        margin-right: remCalc(2px);
       }
     }
   }
 
-  .carousel-dots {
-    text-align: center;
-    margin-top: 40px;
-
-    .dot {
-      height: 12px;
-      width: 12px;
-      margin: 0 8px;
-      background-color: $color-bg-grey-dark;
-      border-radius: 50%;
-      display: inline-block;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-
-      &:hover {
-        background-color: $color-primary;
-      }
-    }
-  }
 }

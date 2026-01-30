@@ -1,23 +1,30 @@
 @use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
 
 .portfolio {
-  padding: 100px 0;
+  padding: remCalc(100px) 0;
   background-color: $color-white;
 
   .filters {
-    display: flex;
+    @include flex-center(row, 30px);
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
-    margin-bottom: 50px;
+    margin-bottom: remCalc(50px);
+
+    @include respond-to(small) {
+      gap: remCalc(15px);
+      margin-bottom: remCalc(30px);
+    }
 
     p {
-      font-size: 16px;
+      font-size: remCalc(16px);
       font-weight: 500;
       color: $color-text-body;
       cursor: pointer;
       transition: all 0.3s ease;
       position: relative;
-      padding-bottom: 5px;
+      padding-bottom: remCalc(5px);
 
       &:hover {
         color: $color-primary;
@@ -39,10 +46,10 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, auto);
-    gap: 20px;
-    max-width: 1140px;
+    gap: remCalc(20px);
+    max-width: remCalc(1140px);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 remCalc(20px);
 
     .grid-item {
       background-color: $color-bg-grey;
@@ -80,10 +87,7 @@
       }
 
       .text-overlay {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        @include absolute-center;
         color: $color-white;
         text-align: center;
         z-index: 3;
@@ -92,11 +96,11 @@
         width: 100%;
 
         h2 {
-          font-size: 20px;
-          margin-bottom: 5px;
+          font-size: remCalc(20px);
+          margin-bottom: remCalc(5px);
         }
         p {
-          font-size: 14px;
+          font-size: remCalc(14px);
           opacity: 0.8;
         }
       }
@@ -134,10 +138,8 @@
       grid-column: 3;
       grid-row: 3 / span 2;
     }
-  }
 
-  @media (max-width: 992px) {
-    .grid-container {
+    @include respond-to(large) {
       grid-template-columns: repeat(2, 1fr);
       
       .item1, .item2, .item3, .item4, .item5, .item6, .item7 {
@@ -145,10 +147,8 @@
         grid-row: auto;
       }
     }
-  }
 
-  @media (max-width: 576px) {
-    .grid-container {
+    @include respond-to(small) {
       grid-template-columns: 1fr;
     }
   }

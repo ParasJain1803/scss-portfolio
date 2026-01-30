@@ -1,46 +1,75 @@
 @use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+
 header {
   background-color: $color-black;
-  padding: 0 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 70px;
+  padding: 0 remCalc(60px);
+  height: remCalc(70px);
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
   transition: background-color 0.3s ease;
+  
+  @include flex-center(row);
+  justify-content: space-between;
+
+  @include respond-to(medium) {
+    padding: 0 remCalc(30px);
+    height: remCalc(60px);
+  }
+
+  @include respond-to(small) {
+    padding: 0 remCalc(20px);
+  }
 
   .logo {
-    font-size: 28px;
+    font-size: remCalc(28px);
     font-weight: 700;
     color: $color-white;
     letter-spacing: 1px;
+
+    @include respond-to(medium) {
+      font-size: remCalc(24px);
+    }
+
+    @include respond-to(small) {
+      font-size: remCalc(20px);
+    }
   }
 
   nav {
     flex: 1;
-    display: flex;
-    justify-content: center;
+    @include flex-center;
+
+    @include respond-to(medium) {
+      display: none;
+    }
     
     ul {
       list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 35px;
+      @include flex-center(row, 35px);
       margin: 0;
       padding: 0;
+
+      @include respond-to(large) {
+        gap: remCalc(25px);
+      }
       
       li {
         a {
           color: $color-white;
           text-decoration: none;
-          font-size: 15px;
+          font-size: remCalc(15px);
           font-weight: 400;
           transition: color 0.3s ease;
           position: relative;
+
+          @include respond-to(large) {
+            font-size: remCalc(14px);
+          }
           
           &:hover {
             color: $color-primary;
@@ -54,30 +83,57 @@ header {
     }
   }
 
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: $color-white;
+    font-size: remCalc(24px);
+    cursor: pointer;
+    padding: remCalc(5px);
+    transition: color 0.3s ease;
+
+    @include respond-to(medium) {
+      display: block;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
   .socials {
     ul {
       list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 20px;
+      @include flex-center(row, 20px);
       margin: 0;
       padding: 0;
+
+      @include respond-to(medium) {
+        gap: remCalc(15px);
+      }
       
       li {
         a {
           color: $color-white;
-          font-size: 16px;
+          font-size: remCalc(16px);
           transition: color 0.3s ease;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          @include flex-center;
+
+          @include respond-to(small) {
+            font-size: remCalc(14px);
+          }
           
           &:hover {
             color: $color-primary;
           }
           
           i {
-            font-size: 16px;
+            font-size: remCalc(16px);
+
+            @include respond-to(small) {
+              font-size: remCalc(14px);
+            }
           }
         }
       }

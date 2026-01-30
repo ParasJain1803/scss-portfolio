@@ -1,30 +1,32 @@
 @use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
 
 .summary {
-    padding: 100px 0;
+    padding: remCalc(100px) 0;
     background-color: $color-white;
     position: relative;
 
     .summary-wrapper {
-        max-width: 1140px;
+        max-width: remCalc(1140px);
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 remCalc(20px);
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 60px;
+        gap: remCalc(60px);
 
-        @media (max-width: 992px) {
+        @include respond-to(large) {
             grid-template-columns: 1fr;
-            gap: 50px;
+            gap: remCalc(50px);
         }
     }
 
     .summary-content {
         h2 {
-            font-size: 24px;
+            font-size: remCalc(24px);
             font-weight: 600;
             color: $color-text-dark;
-            margin: 0 0 40px 0;
+            margin: 0 0 remCalc(40px) 0;
             line-height: 1.3;
         }
 
@@ -32,8 +34,8 @@
             background-color: $color-white;
             border: 1px solid $color-border-light;
             border-radius: 8px;
-            padding: 30px;
-            margin-bottom: 25px;
+            padding: remCalc(30px);
+            margin-bottom: remCalc(25px);
             transition: all 0.3s ease;
 
             &:last-child {
@@ -50,33 +52,33 @@
                 display: inline-block;
                 background-color: $color-primary;
                 color: $color-white;
-                font-size: 12px;
+                font-size: remCalc(12px);
                 font-weight: 600;
-                padding: 6px 14px;
+                padding: remCalc(6px) remCalc(14px);
                 border-radius: 4px;
-                margin-bottom: 15px;
+                margin-bottom: remCalc(15px);
                 text-transform: none;
                 letter-spacing: 0.5px;
             }
 
             h3 {
-                font-size: 20px;
+                font-size: remCalc(20px);
                 font-weight: 600;
                 color: $color-text-dark;
-                margin: 0 0 8px 0;
+                margin: 0 0 remCalc(8px) 0;
                 line-height: 1.3;
             }
 
             .institution {
-                font-size: 15px;
+                font-size: remCalc(15px);
                 color: $color-red;
-                margin: 0 0 12px 0;
+                margin: 0 0 remCalc(12px) 0;
                 font-weight: 500;
                 line-height: 1.4;
             }
 
             .description {
-                font-size: 15px;
+                font-size: remCalc(15px);
                 color: $color-text-body;
                 line-height: 1.7;
                 margin: 0;
@@ -86,38 +88,37 @@
     }
 
     .skills {
-        max-width: 1140px;
-        margin: 80px auto 0;
-        padding: 0 20px;
+        max-width: remCalc(1140px);
+        margin: remCalc(80px) auto 0;
+        padding: 0 remCalc(20px);
 
         h2 {
-            font-size: 24px;
+            font-size: remCalc(24px);
             font-weight: 600;
             color: $color-text-dark;
-            margin: 0 0 40px 0;
+            margin: 0 0 remCalc(40px) 0;
             line-height: 1.3;
         }
 
         .skills-content {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 30px 60px;
-            margin-bottom: 50px;
+            gap: remCalc(30px) remCalc(60px);
+            margin-bottom: remCalc(50px);
 
-            @media (max-width: 768px) {
+            @include respond-to(medium) {
                 grid-template-columns: 1fr;
-                gap: 25px;
+                gap: remCalc(25px);
             }
 
             .skill-item {
                 p {
-                    font-size: 15px;
+                    font-size: remCalc(15px);
                     color: $color-text-dark;
                     font-weight: 500;
-                    margin: 0 0 10px 0;
-                    display: flex;
+                    margin: 0 0 remCalc(10px) 0;
+                    @include flex-center(row);
                     justify-content: space-between;
-                    align-items: center;
 
                     span {
                         color: $color-text-body;
@@ -127,7 +128,7 @@
 
                 progress {
                     width: 100%;
-                    height: 6px;
+                    height: remCalc(6px);
                     border-radius: 10px;
                     overflow: hidden;
                     appearance: none;
@@ -158,8 +159,8 @@
         button {
             display: block;
             margin: 0 auto;
-            padding: 12px 35px;
-            font-size: 15px;
+            padding: remCalc(12px) remCalc(35px);
+            font-size: remCalc(15px);
             font-weight: 500;
             color: $color-text-dark;
             background-color: transparent;
@@ -169,8 +170,8 @@
             transition: all 0.3s ease;
 
             i {
-                margin-left: 8px;
-                font-size: 14px;
+                margin-left: remCalc(8px);
+                font-size: remCalc(14px);
             }
 
             &:hover {

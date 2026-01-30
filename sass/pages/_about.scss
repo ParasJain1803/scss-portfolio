@@ -1,36 +1,37 @@
 @use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
 
 .about {
-    padding: 100px 0;
+    padding: remCalc(100px) 0;
     background-color: $color-white;
     position: relative;
 
     .about-content {
-        display: flex;
+        @include flex-center(row, 80px);
         justify-content: space-between;
         align-items: flex-start;
-        max-width: 1140px;
+        max-width: remCalc(1140px);
         margin: 0 auto;
-        padding: 0 20px;
-        gap: 80px;
+        padding: 0 remCalc(20px);
         
-        @media (max-width: 992px) {
+        @include respond-to(large) {
             flex-direction: column;
-            gap: 50px;
+            gap: remCalc(50px);
         }
 
         .about-left {
             flex: 0 0 58%;
             
-            @media (max-width: 992px) {
+            @include respond-to(large) {
                 flex: 0 0 100%;
             }
 
             h3 {
-                font-size: 26px;
+                font-size: remCalc(26px);
                 font-weight: 600;
                 color: $color-text-dark;
-                margin-bottom: 25px;
+                margin-bottom: remCalc(25px);
                 line-height: 1.4;
                 
                 .highlight {
@@ -40,10 +41,10 @@
             }
 
             p {
-                font-size: 16px;
+                font-size: remCalc(16px);
                 color: $color-text-body;
                 line-height: 1.8;
-                margin-bottom: 20px;
+                margin-bottom: remCalc(20px);
                 font-weight: 400;
 
                 &:last-of-type {
@@ -55,22 +56,22 @@
         .about-right {
             flex: 0 0 35%;
             
-            @media (max-width: 992px) {
+            @include respond-to(large) {
                 flex: 0 0 100%;
             }
 
             p {
-                font-size: 16px;
+                font-size: remCalc(16px);
                 color: $color-text-body;
-                margin-bottom: 18px;
-                display: flex;
-                align-items: center;
+                margin-bottom: remCalc(18px);
+                @include flex-center(row);
+                justify-content: flex-start;
                 line-height: 1.6;
                 
                 strong {
                     color: $color-text-dark;
                     font-weight: 600;
-                    min-width: 80px;
+                    min-width: remCalc(80px);
                     display: inline-block;
                 }
             }
@@ -79,43 +80,43 @@
                 width: 100%;
                 height: 1px;
                 background-color: $color-border;
-                margin: 18px 0;
+                margin: remCalc(18px) 0;
             }
 
             button {
-                margin-top: 30px;
+                @include button-style($color-primary);
+                margin-top: remCalc(30px);
                 width: 100%;
-                max-width: 200px;
+                max-width: remCalc(200px);
             }
         }
     }
 
     .about-bottom {
-        max-width: 1140px;
-        margin: 80px auto 0;
-        padding: 0 20px;
+        max-width: remCalc(1140px);
+        margin: remCalc(80px) auto 0;
+        padding: 0 remCalc(20px);
 
         .about-grid {
-            display: flex;
+            @include flex-center(row);
             justify-content: space-between;
-            align-items: center;
             background-color: $color-bg-light;
             border-radius: 8px;
-            padding: 60px 0;
+            padding: remCalc(60px) 0;
 
-            @media (max-width: 768px) {
+            @include respond-to(medium) {
                 flex-direction: column;
-                padding: 40px 0;
+                padding: remCalc(40px) 0;
             }
 
             .about-grid__item {
                 flex: 1;
                 text-align: center;
                 position: relative;
-                padding: 0 30px;
+                padding: 0 remCalc(30px);
 
-                @media (max-width: 768px) {
-                    padding: 20px 30px;
+                @include respond-to(medium) {
+                    padding: remCalc(20px) remCalc(30px);
                     width: 100%;
                 }
 
@@ -126,24 +127,24 @@
                     top: 50%;
                     transform: translateY(-50%);
                     width: 1px;
-                    height: 60px;
+                    height: remCalc(60px);
                     background-color: $color-border-medium;
 
-                    @media (max-width: 768px) {
+                    @include respond-to(medium) {
                         display: none;
                     }
                 }
 
                 h4 {
-                    font-size: 48px;
+                    font-size: remCalc(48px);
                     font-weight: 700;
                     color: $color-text-dark;
-                    margin: 0 0 10px 0;
+                    margin: 0 0 remCalc(10px) 0;
                     line-height: 1;
                 }
 
                 p {
-                    font-size: 16px;
+                    font-size: remCalc(16px);
                     color: $color-text-body;
                     margin: 0;
                     font-weight: 400;

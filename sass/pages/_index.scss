@@ -1,10 +1,11 @@
 @use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+
 .hero {
   position: relative;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
   overflow: hidden;
   
   background-color: $color-black;
@@ -22,10 +23,10 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 100vw;
+      width: 100%;
       height: 56.25vw;
       min-height: 100vh;
-      min-width: 177.77vh;
+      min-width: 100%;
       transform: translate(-50%, -50%);
       pointer-events: none;
       opacity: 0.5;
@@ -37,46 +38,55 @@
     z-index: 10;
     text-align: center;
     color: $color-white;
-    padding: 0 20px;
+    padding: 0 remCalc(20px);
     
     p:first-child {
-      font-size: 18px;
+      font-size: remCalc(18px);
       font-weight: 400;
-      margin-bottom: 15px;
+      margin-bottom: remCalc(15px);
       letter-spacing: 2px;
       text-transform: none;
+
+      @include respond-to(medium) {
+        font-size: remCalc(16px);
+      }
     }
     
     h1 {
-      font-size: 72px;
+      font-size: remCalc(72px);
       font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: remCalc(20px);
       line-height: 1.2;
       color: $color-white;
       
-      @media (max-width: 768px) {
-        font-size: 48px;
+      @include respond-to(medium) {
+        font-size: remCalc(48px);
       }
       
-      @media (max-width: 480px) {
-        font-size: 36px;
+      @include respond-to(extra-small) {
+        font-size: remCalc(36px);
       }
     }
     
     p:nth-child(3) {
-      font-size: 18px;
+      font-size: remCalc(18px);
       font-weight: 400;
-      margin-bottom: 40px;
+      margin-bottom: remCalc(40px);
       color: $color-white;
       letter-spacing: 1px;
+
+      @include respond-to(medium) {
+        font-size: remCalc(16px);
+        margin-bottom: remCalc(30px);
+      }
     }
     
     button {
       background-color: transparent;
       color: $color-primary;
       border: 2px solid $color-primary;
-      padding: 14px 45px;
-      font-size: 16px;
+      padding: remCalc(14px) remCalc(45px);
+      font-size: remCalc(16px);
       font-weight: 500;
       border-radius: 50px;
       cursor: pointer;
@@ -90,21 +100,26 @@
         transform: translateY(-2px);
         box-shadow: 0 8px 20px rgba($color-primary, 0.4);
       }
+
+      @include respond-to(small) {
+        padding: remCalc(12px) remCalc(35px);
+        font-size: remCalc(14px);
+      }
     }
   }
   
   > button {
     position: absolute;
-    bottom: 40px;
+    bottom: remCalc(40px);
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
     background-color: transparent;
     border: none;
     color: $color-white;
-    font-size: 24px;
+    font-size: remCalc(24px);
     cursor: pointer;
-    padding: 10px;
+    padding: remCalc(10px);
     box-shadow: none;
     transition: all 0.3s ease;
     animation: bounce 2s infinite;
@@ -118,6 +133,11 @@
     
     i {
       display: block;
+    }
+
+    @include respond-to(small) {
+      bottom: remCalc(20px);
+      font-size: remCalc(20px);
     }
   }
 }

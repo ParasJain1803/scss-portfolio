@@ -1,31 +1,38 @@
 @use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+@use '../abstracts/functions' as *;
+
 .go-to-top {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 45px;
-  height: 45px;
-  background-color: $color-primary;
+  bottom: remCalc(30px);
+  right: remCalc(30px);
+  width: remCalc(44px);
+  height: remCalc(44px);
+  background-color: rgba($color-black, 0.2);
   color: $color-white;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
   text-decoration: none;
-  font-size: 18px;
-  box-shadow: 0 4px 15px rgba($color-primary, 0.3);
+  font-size: remCalc(14px);
+  box-shadow: 0 4px 10px rgba($color-black, 0.1);
   opacity: 1;
   visibility: visible;
   transition: all 0.3s ease;
   z-index: 1000;
   cursor: pointer;
-  color: $color-white;
 
   &:hover {
-    background-color: $color-white;
-    box-shadow: 0 6px 20px rgba($color-primary, 0.4);
-    transform: translateY(-3px);
-    color: $color-primary;
+    background-color: rgba($color-black, 0.5);
+    box-shadow: 0 6px 15px rgba($color-black, 0.2);
+    transform: translateY(-5px);
+    color: $color-white;
+  }
+
+  @include respond-to(small) {
+    bottom: remCalc(20px);
+    right: remCalc(20px);
+    width: remCalc(36px);
+    height: remCalc(36px);
+    font-size: remCalc(12px);
   }
 }
-
